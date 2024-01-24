@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Table(name = "delivery")
 @Getter @Setter
@@ -13,7 +15,7 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "delivery")
+    @OneToOne(fetch = LAZY, mappedBy = "delivery")
     private Order order;
 
     @Embedded
